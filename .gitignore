@@ -1,0 +1,8 @@
+#build
+target/
+
+#ide
+.vscode/ 
+
+#common 
+.DS_Store

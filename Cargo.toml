@@ -1,0 +1,29 @@
+[package]
+name = "dingding-ctrl"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+# --- binary ---
+default = ["image-resize"] 
+full = ["ding-ctrl", "image-resize"]
+
+# --- binary-modules ---
+ding-ctrl = ["reqwest"]
+image-resize = ["image", "imageproc"]
+
+
+[dependencies]
+futures = "0.3.24"
+yaml-rust = "0.4.5"
+
+reqwest = { version = "0.11.12", optional = true }
+image =  { version = "0.24.4", optional = true }
+imageproc = { version = "0.23.0",   optional = true }
+
+
+[[example]]
+name = "resize"
+path = "example/resize.rs"
+required-features = ["image-resize"]
